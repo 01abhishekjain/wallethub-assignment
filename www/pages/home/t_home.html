@@ -53,28 +53,13 @@
     <div class="panel-body">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Sort By:</a>
+                Sort By:
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default" ng-click="order = 'Name'">Name</button>
+                    <button type="button" class="btn btn-default" ng-click="order = 'Color'">Color</button>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li ng-click="order = 'Name'"><a>Name</a></li>
-                        <li ng-click="order = 'Color'"><a>Color</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand">Filter:</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" ng-model="filter">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </div>
+                Filter:
+                <input type="text" placeholder="Search" ng-model="filter">
             </div>
         </nav>
         <ul class="list-group">
