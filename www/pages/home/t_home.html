@@ -1,0 +1,167 @@
+<!-- section 1 -->
+<div class="panel panel-default margin">
+    <div class="panel-heading">
+        <div class="page-header">
+            <h3>I. Pages</h3>
+        </div>
+        <h3 class="panel-title">3 pages that share a single state for loading them</h3>
+    </div>
+    <div class="panel-body">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" ui-sref="page({pgNum: '1', optnlPrm: 'my additional param'})">Page 1</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" ui-sref="page({pgNum: '2'})">Page 2</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" ui-sref="page({pgNum: '3'})">Page 3</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- section 1 -->
+<!-- section 2 -->
+<div class="panel panel-default margin">
+    <div class="panel-heading">
+        <div class="page-header">
+            <h3>II. Passing data between page controllers</h3>
+        </div>
+        <h3 class="panel-title">Data entered in the box below will be passed to the NEXT PAGE</h3>
+    </div>
+    <div class="panel-body">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" ng-model="inputText" ng-change="updateFactoryData()">
+        </div>
+        <br>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" ui-sref="sharingData">Open the NEXT PAGE</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- section 2 -->
+<!-- section 3 -->
+<div class="panel panel-default margin">
+    <div class="panel-heading">
+        <div class="page-header">
+            <h3>III. Array operations</h3>
+        </div>
+        <h3 class="panel-title">Chose a sorting key or filter the array yourself</h3>
+    </div>
+    <div class="panel-body">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Sort By:</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li ng-click="order = 'Name'"><a>Name</a></li>
+                        <li ng-click="order = 'Color'"><a>Color</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Filter:</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" ng-model="filter">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="item in itemsArr | filter : filter | orderBy: order">
+                <span class="greyColor">Name: </span> <span>{{item.Name}}</span>
+                <br>
+                <span class="greyColor">Color: </span> <span>{{item.Color}}</span>
+                <br>
+                <span class="greyColor">Department: </span> <span>{{item.Department}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- section 3 -->
+<!-- section 4 -->
+<div class="panel panel-default margin">
+    <div class="panel-heading">
+        <div class="page-header">
+            <h3>IV. Inputs</h3>
+        </div>
+        <h3 class="panel-title">Directives are used to filter the following inputs</h3>
+    </div>
+    <div class="panel-body">
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">Phone: </span>
+            <input type="text" class="form-control" aria-describedby="sizing-addon1" ng-model="phone" format-phone>
+        </div>
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">Currency: </span>
+            <input class="form-control" type="text" ng-model="currency" format-currency>
+        </div>
+    </div>
+</div>
+<!-- section 4 -->
+<!-- section 5 -->
+<div class="panel panel-default margin">
+    <div class="panel-heading">
+        <div class="page-header">
+            <h3>V. Adding Numbers</h3>
+        </div>
+        <h3 class="panel-title">Try editing the 4th box, it's value will be spread amongst the other boxes</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-3 col-xs-12">
+                Number 1
+                <div class="input-group">
+                    <input type="number" class="form-control" ng-model="data.number1" ng-change="addNumbers()">
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-12">
+                + Number 2
+                <div class="input-group">
+                    <input type="number" class="form-control" ng-model="data.number2" ng-change="addNumbers()">
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-12">
+                + Number 3
+                <div class="input-group">
+                    <input type="number" class="form-control" ng-model="data.number3" ng-change="addNumbers()">
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-12">
+                = Number 4
+                <div class="input-group">
+                    <input type="number" class="form-control" ng-model="data.number4" ng-change="spreadNums()" style="background: lightblue;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- section 5 -->
+<!-- section 6 -->
+<div class="panel panel-default margin">
+    <div class="panel-heading">
+        <div class="page-header">
+            <h3>VI. Jumping Cursors</h3>
+        </div>
+        <h3 class="panel-title">Each field can contain a maximum of characters. The cursor will automatically jump around as you fill or empty a field</h3>
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            First Input:
+            <input type="text" maxlength="5" class="form-control" /> Second Input:
+            <input type="text" maxlength="5" class="form-control" /> Third Input:
+            <input type="text" maxlength="5" class="form-control" />
+        </div>
+    </div>
+</div>
+<!-- section 6 -->
